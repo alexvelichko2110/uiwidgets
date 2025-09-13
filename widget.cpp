@@ -4,9 +4,9 @@
 
 namespace ui {
 
-void Widget::draw()
+void Widget::draw(Render *render)
 {
-    Render* render = instance()->get_render();
+    // Render* render = instance()->get_render();
 
     // rect fill color
     render->set_color(glm::vec4(0.6f, 0.6f, 0.6f, 1.0f));

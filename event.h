@@ -10,9 +10,9 @@ class Event
 public:
 
     std::string _name;
-
-    float _x;
-    float _y;
+    int action;
+    double x;
+    double y;
 };
 
 }

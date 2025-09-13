@@ -18,28 +18,55 @@ namespace ui {
 
 UI::~UI()
 {
-    delete _render;
+    // delete _render;
 }
 
 UI::UI()
 {
-    _render = new Render();
-    _render->load_resources_all();
+    //_render = new Render();
+    //_render->load_resources_all();
 
-    menu.add_line("ПУНКТ1\n");
-    menu.add_line("ПУНКТ2\n");
-    menu.add_line("ПУНКТ3\n");
+    // menu.add_line("ПУНКТ1\n");
+    // menu.add_line("ПУНКТ2\n");
+    // menu.add_line("ПУНКТ3\n");
 
-    menu.set_rect(-50.0, 50, 200, 200);
+    // menu.set_rect(-50.0, 50, 200, 200);
 }
 
-void UI::draw()
+void UI::mouse_move_event_up(Event *event)
 {
-    _render->set_viewport( _window_width, _window_height);
+    std::vector<Widget*>::iterator i = _widgets.begin(), e = _widgets.end();
 
-    _render->clear();
+    for (; i != e; ++i)
+    {
+        (*i)->on_event(event);
+    }
+}
 
-    menu.draw();
+void UI::mouse_click_event_up(Event *event)
+{
+    std::vector<Widget*>::iterator i = _widgets.begin(), e = _widgets.end();
+
+    for (; i != e; ++i)
+    {
+        (*i)->on_event(event);
+    }
+}
+
+void UI::draw(Render* render)
+{
+    render->set_viewport( _window_width, _window_height);
+
+    render->clear();
+
+    std::vector<Widget*>::iterator i = _widgets.begin(), e = _widgets.end();
+
+    for (; i != e; ++i)
+    {
+        (*i)->draw(render);
+    }
+
+    // menu.draw(render);
 }
 
 UI* instance()

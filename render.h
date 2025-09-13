@@ -40,7 +40,9 @@ public:
         float y2 = _height*0.5f;
     
         P = glm::ortho (x1, x2, y1, y2, -1.0f, 5.0f);
-    
+
+        P = glm::ortho (0.0f, _width, 0.0f, _height, -1.0f, 5.0f);
+
 
         // P = glm::ortho(0.0f, (float)_width, 0.0f, (float)_height, -1.0f, 5.0f);
     }
@@ -246,8 +248,8 @@ public:
 
     Font *_font;
 
-    int _width;
-    int _height;
+    float _width;
+    float _height;
 
     glm::mat4 P;
     glm::mat4 M;

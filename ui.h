@@ -1,6 +1,7 @@
 #ifndef UI_H_
 #define UI_H_
 
+#include "event.h"
 #include "render.h"
 
 #include "popup_menu.h"
@@ -22,30 +23,29 @@ public:
 
     }
 
-    void mouse_move_event_up()
-    {
+    void mouse_move_event_up(Event *event);
+    void mouse_click_event_up(Event *event);
 
+    void draw(Render* render);
+
+    void add_widget(Widget *widget) {
+        _widgets.push_back(widget);
     }
-
-    void mouse_click_event_up()
-    {
-        
-    }
-
-    void draw();
     
-    Render* get_render() {
-        return _render;
-    }
+    // Render* get_render() {
+    //     return _render;
+    // }
 
 private:
 
     int _window_width;
     int _window_height;
 
-    PopupMenu menu;
+    // PopupMenu menu;
 
-    Render* _render;
+    std::vector<Widget*> _widgets;
+
+    // Render* _render;
 };
 
 UI* instance();

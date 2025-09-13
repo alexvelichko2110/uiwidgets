@@ -3,6 +3,8 @@
 
 #include <list>
 
+#include "render.h"
+
 #include "event.h"
 
 namespace ui {
@@ -22,14 +24,14 @@ public:
         
     }
 
-    typedef std::list<Widget*> WidgetList;
+    // typedef std::list<Widget*> WidgetList;
     
     virtual void on_event(Event* e)
     {
 
     }
 
-    virtual void draw();
+    virtual void draw(Render* render);
 
     void set_rect(float x, float y, float width, float height)
     {
@@ -43,10 +45,10 @@ public:
 // private:
 
 	// perent node
-	Widget *_parent;
+	// Widget *_parent;
 
 	// list of children node
-	WidgetList _children;
+	// WidgetList _children;
 
     float _x;
     float _y;

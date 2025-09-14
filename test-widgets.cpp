@@ -137,7 +137,12 @@ int main()
 
     menu.set_rect(200.0, 250, 200, 200);
 
+    ui::Widget widget;
+
+    widget.set_rect(200.0, 250, 200, 200);
+
     ui::instance()->add_widget(&menu);
+    ui::instance()->add_widget(&widget);
 
     ui::instance()->set_window(WIDTH, HEIGHT);
 
